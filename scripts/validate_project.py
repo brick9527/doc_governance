@@ -7,9 +7,8 @@
     2. 文档文件名是否包含版本号 VX.Y 和日期戳 YYMMDD
     3. 是否存在 00_索引.md
     4. 是否存在 AGENTS.md
-    5. 是否存在 CHANGELOG.md
-    6. 各分类文件夹是否有版本管理日志
-    7. 根目录是否散落未分类文件
+    5. 各分类文件夹是否有版本管理日志
+    6. 根目录是否散落未分类文件
 
 用法:
     python validate_project.py <项目根目录>
@@ -27,9 +26,7 @@ DOC_PATTERN = re.compile(
 # 根目录允许的特殊文件
 ROOT_ALLOWED_FILES = {
     '00_索引.md',
-    '00_项目版本管理.md',
     'AGENTS.md',
-    'CHANGELOG.md',
     'README.md',
     '.gitignore',
 }
@@ -56,10 +53,6 @@ def validate_project(root: Path):
         has_index = '索引' in content
         if not has_version or not has_index:
             issues.append("💡  AGENTS.md 内容可能未包含文档治理规范，建议同步更新")
-
-    changelog_file = root / 'CHANGELOG.md'
-    if not changelog_file.exists():
-        issues.append("⚠️  缺少 CHANGELOG.md")
 
     # 2. 遍历所有文件检查命名
     for dirpath, dirnames, filenames in walk(root):

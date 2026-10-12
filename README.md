@@ -12,7 +12,6 @@
 | 分类归档 | 同类文件归入编号文件夹，根目录保持干净 |
 | 根目录索引 | `00_索引.md` 列出所有文档最新版清单 |
 | AGENTS.md 同步 | 检查项目规范文件是否包含文档治理约定，提示用户更新 |
-| 项目版本 | 遵循 SemVer 规则（MAJOR.MINOR.PATCH），配套 CHANGELOG |
 
 ## 目录结构
 
@@ -30,8 +29,7 @@ doc-governance/
 ├── assets/                           # 模板资源（随技能发布）
 │   └── templates/
 │       ├── version-log-template.md    # 版本日志模板
-│       ├── index-template.md          # 索引模板
-│       └── changelog-template.md      # CHANGELOG 模板
+│       └── index-template.md          # 索引模板
 ├── dev/                              # 开发工具（不发布）
 │   └── package_release.py            # 打包发布脚本
 └── output/                           # 打包输出（Git 忽略）
@@ -40,7 +38,7 @@ doc-governance/
 
 ## 安装方式
 
-将整个 `doc-governance` 文件夹复制到技能目录即可自动加载：
+将 `doc-governance` 文件夹复制到技能目录即可自动加载：
 
 ```
 ~/.doubao/agent_mode/workspace/.user_skills/doc-governance/
@@ -54,7 +52,7 @@ doc-governance/
 python scripts/validate_project.py <项目根目录>
 ```
 
-扫描项目目录，检查命名规范、版本号格式、缺失的版本日志、索引是否过期、AGENTS.md 同步状态等。
+扫描项目目录，检查命名规范、版本号格式、缺失的版本日志、索引状态、AGENTS.md 同步状态等。
 
 ### generate_index.py — 生成索引
 
@@ -77,8 +75,8 @@ python scripts/create_version.py <源文件路径> [--minor|--major]
 ```
 文件夹：    01_需求文档/  02_设计文档/  03_会议纪要/
 业务文档：  01_需求说明书-V1.0-261012.md
-特殊文件：  00_索引.md  00_项目版本管理.md  00_需求文档-版本管理.md
-例外文件：  AGENTS.md  README.md  CHANGELOG.md（不加编号）
+技能文件：  00_索引.md  00_需求文档-版本管理.md
+例外文件：  AGENTS.md  README.md（不加编号）
 ```
 
 ## 版本
