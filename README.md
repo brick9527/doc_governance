@@ -19,18 +19,23 @@
 ```
 doc-governance/
 ├── SKILL.md                          # 技能主文件（核心规范与工作流程）
-├── CHANGELOG.md                      # 变更日志
 ├── README.md                         # 项目说明
-├── 00_项目版本管理.md                # 项目版本演进记录
-├── scripts/
+├── CHANGELOG.md                      # 变更日志（内部维护，不发布）
+├── 00_项目版本管理.md                # 项目版本演进记录（内部维护，不发布）
+├── .gitignore                        # Git 忽略规则
+├── scripts/                          # 运行时脚本（随技能发布）
 │   ├── validate_project.py           # 校验项目文档规范符合度
 │   ├── generate_index.py            # 扫描生成/更新根目录索引
 │   └── create_version.py             # 基于最新版创建新版本文件
-└── assets/
-    └── templates/
-        ├── version-log-template.md    # 版本日志模板
-        ├── index-template.md          # 索引模板
-        └── changelog-template.md      # CHANGELOG 模板
+├── assets/                           # 模板资源（随技能发布）
+│   └── templates/
+│       ├── version-log-template.md    # 版本日志模板
+│       ├── index-template.md          # 索引模板
+│       └── changelog-template.md      # CHANGELOG 模板
+├── dev/                              # 开发工具（不发布）
+│   └── package_release.py            # 打包发布脚本
+└── output/                           # 打包输出（Git 忽略）
+    └── doc-governance-vX.Y.Z.zip
 ```
 
 ## 安装方式
