@@ -77,6 +77,12 @@ def validate_project(root: Path):
             if filename.endswith('-版本管理.md'):
                 continue
 
+            # 检查双重编号（如 01_03_xxx.md）
+            if re.match(r'^\d{2}_\d{2}_', filename):
+                issues.append(f"🔢  双重编号问题: {rel_dir / filename}")
+                issues.append(f"    应去掉原编号，按当前文件夹内顺序重新编号")
+                continue
+
             # 检查文档命名
             m = DOC_PATTERN.match(filename)
             if not m:
